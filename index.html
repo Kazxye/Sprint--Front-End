@@ -93,6 +93,15 @@
       background-size: 400% 400%;
       animation: gradientShift 8s ease infinite;
     }
+    
+    /* Estilo para a imagem da camiseta */
+    .shirt-image {
+      transition: transform 0.3s ease;
+    }
+    
+    .shirt-image:hover {
+      transform: scale(1.02);
+    }
   </style>
 </head>
 <body class="bg-gray-900 overflow-hidden">
@@ -113,7 +122,7 @@
     </div>
   </div>
 
-    <!-- Main Page -->
+      <!-- Main Page -->
   <div id="main" class="hidden h-[100dvh] flex flex-col bg-black relative overflow-hidden">
     <!-- Header -->
     <header class="bg-black w-full h-16 flex items-center justify-between px-6 border-b border-gray-800">
@@ -186,8 +195,15 @@
           </p>
         </div>
         
-        <!-- Post Image-->>
-         <img src="./imgs/Camiseta Baila.png" alt="">
+        <!-- Post Image -->
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center py-8 px-4">
+          <!-- Imagem da camiseta - substitua o caminho pela sua imagem -->
+          <img 
+            src="./imgs/sua-camiseta.png" 
+            alt="Camiseta Baila" 
+            class="max-w-sm max-h-80 object-contain drop-shadow-2xl shirt-image rounded-lg"
+          />
+        </div>
         
         <!-- Post Actions -->
         <div class="flex items-center justify-between p-4 border-t border-gray-800">
@@ -223,12 +239,106 @@
         </div>
       </div>
       
+      <!-- Post 2 - Ary Borges -->
+      <div class="bg-black border-b border-gray-800">
+        <!-- Post Header -->
+        <div class="flex items-center justify-between p-4">
+          <div class="flex items-center space-x-3">
+            <!-- Profile Avatar -->
+            <img 
+              src="./imgs/ary-borges-avatar.png" 
+              alt="Ary Borges" 
+              class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"
+            />
+            <div>
+              <h3 class="text-white font-semibold">Ary Borges</h3>
+              <p class="text-gray-400 text-sm">Meio-campista</p>
+            </div>
+          </div>
+          
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+            <button class="px-4 py-1 border border-white text-white rounded-full text-sm hover:bg-white hover:text-black transition-colors">
+              Convocar
+            </button>
+            <button class="px-4 py-1 bg-purple-600 text-white rounded-full text-sm hover:bg-purple-700 transition-colors">
+              Seguir
+            </button>
+            <button class="text-white hover:text-gray-300">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        <!-- Post Content -->
+        <div class="px-4 pb-3">
+          <p class="text-white text-sm">
+            Lorem ipsum dolor sit amet, consectetur
+            <span class="text-blue-400">...ver mais</span>
+          </p>
+        </div>
+        
+        <!-- Post Image -->
+        <div class="bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center py-8 px-4">
+          <img 
+            src="./imgs/jogadoras.png" 
+            alt="Jogadoras comemorando" 
+            class="max-w-sm max-h-80 object-contain drop-shadow-2xl shirt-image rounded-lg"
+          />
+        </div>
+        
+        <!-- Post Actions -->
+        <div class="flex items-center justify-between p-4 border-t border-gray-800">
+          <div class="flex items-center space-x-6">
+            <!-- Like -->
+            <button class="flex items-center space-x-1 text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V9a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h.09c.765 0 1.413-.554 1.55-1.31L7 15"/>
+              </svg>
+            </button>
+            
+            <!-- Comment -->
+            <button class="flex items-center space-x-1 text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+            </button>
+            
+            <!-- Share -->
+            <button class="flex items-center space-x-1 text-gray-400 hover:text-white">
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/>
+              </svg>
+            </button>
+          </div>
+          
+          <!-- Bookmark -->
+          <button class="text-gray-400 hover:text-white">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
       <!-- Additional space for more posts -->
       <div class="h-20"></div>
     </div>
   </div>
 
   <script>
+    // Função para inicializar ícones Lucide de forma segura
+    function initLucideIcons() {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      } else {
+        // Fallback: tentar novamente após um delay
+        setTimeout(initLucideIcons, 500);
+      }
+    }
+    
     // Função para transição entre páginas
     function transitionToMain() {
       const intro = document.getElementById('intro');
@@ -242,7 +352,36 @@
         intro.classList.add('hidden');
         main.classList.remove('hidden');
         main.classList.add('animate-slide-in');
+        
+        // Inicializa os ícones Lucide após mostrar a página
+        initLucideIcons();
       }, 1000);
+    }
+    
+    // Função para mostrar a página de mensagens
+    function showMessages() {
+      const main = document.getElementById('main');
+      const messages = document.getElementById('messages');
+      
+      main.classList.add('hidden');
+      messages.classList.remove('hidden');
+      messages.classList.add('animate-slide-in');
+      
+      // Inicializa os ícones Lucide na página de mensagens
+      initLucideIcons();
+    }
+    
+    // Função para voltar à página principal
+    function showMain() {
+      const messages = document.getElementById('messages');
+      const main = document.getElementById('main');
+      
+      messages.classList.add('hidden');
+      main.classList.remove('hidden');
+      main.classList.add('animate-slide-in');
+      
+      // Inicializa os ícones Lucide na página principal
+      initLucideIcons();
     }
     
     // Inicia a transição após 4.5 segundos (após todas as animações da intro)
@@ -254,7 +393,14 @@
     document.getElementById('intro').addEventListener('click', () => {
       transitionToMain();
     });
+    
+    // Inicializa os ícones Lucide quando a página carrega
+    window.addEventListener('load', function() {
+      initLucideIcons();
+    });
   </script>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
 </body>
 </html>
