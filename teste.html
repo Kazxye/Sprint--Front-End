@@ -140,6 +140,31 @@
           display: none !important;
         }
       }
+
+      @keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+/* Estilo específico para reels */
+.reel-container {
+  aspect-ratio: 9/16;
+  max-height: calc(100vh - 8rem);
+}
+
+@media (max-width: 768px) {
+  .reel-container {
+    max-height: calc(100vh - 4rem);
+  }
+}
     </style>
   </head>
   <body class="bg-gray-900 overflow-hidden">
@@ -236,7 +261,7 @@
 
           <!-- Reels -->
           <div
-            class="flex items-center space-x-3 text-white hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-white hover:text-purple-300 cursor-pointer transition-colors" onclick="showReels()"
           >
             <i data-lucide="play" class="w-6 h-6"></i>
             <span class="text-lg">Reels</span>
@@ -530,7 +555,7 @@
 
           <!-- Reels -->
           <div
-            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showReels()"
           >
             <i data-lucide="play" class="w-6 h-6"></i>
             <span class="text-lg">Reels</span>
@@ -551,7 +576,7 @@
           <div class="flex-1 relative">
             <i
               data-lucide="search"
-              class="w-4 h-4 text-white absolute left-3 top-1/2 transform -translate-y-1/2"
+              class="w-4 h-4 text-white absolute left-3 top-1/2 transform -translate-y-1/2" onclick="showSearch()"
             ></i>
             <input
               type="text"
@@ -705,7 +730,7 @@
 
           <!-- Reels -->
           <div
-            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showReels()"
           >
             <i data-lucide="play" class="w-6 h-6"></i>
             <span class="text-lg">Reels</span>
@@ -833,7 +858,7 @@
       
       <!-- Reels -->
       <div class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors">
-        <i data-lucide="play" class="w-6 h-6"></i>
+        <i data-lucide="play" class="w-6 h-6" onclick="showReels()"></i>
         <span class="text-lg">Reels</span>
       </div>
     </nav>
@@ -951,6 +976,215 @@
       
       <!-- Additional space -->
       <div class="h-20"></div>
+    </div>
+  </div>
+</div>
+
+  <!-- Reels Page - Adicione esta seção completa após a Messages Page -->
+<div
+  id="reels"
+  class="hidden h-[100dvh] flex bg-black relative overflow-hidden"
+>
+  <!-- Sidebar (Desktop only) -->
+  <aside
+    class="sidebar-desktop w-64 bg-black border-r border-gray-800 flex flex-col p-6"
+  >
+    <!-- Logo Baila -->
+    <h1 class="text-white text-2xl font-medium font-serif mb-8">Baila</h1>
+
+    <!-- Navigation Menu -->
+    <nav class="flex flex-col space-y-6">
+      <!-- Home -->
+      <div
+        class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+        onclick="showMain()"
+      >
+        <i data-lucide="home" class="w-6 h-6"></i>
+        <span class="text-lg">Feed</span>
+      </div>
+
+      <!-- Search -->
+      <div
+        class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+        onclick="showSearch()"
+      >
+        <i data-lucide="search" class="w-6 h-6"></i>
+        <span class="text-lg">Pesquisar</span>
+      </div>
+
+      <!-- Notifications -->
+      <div
+        class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" 
+        onclick="showNotifications()"
+      >
+        <div class="relative">
+          <i data-lucide="bell" class="w-6 h-6"></i>
+          <!-- Notification dot -->
+          <div
+            class="absolute -top-1 -right-1 w-2 h-2 bg-purple-500 rounded-full"
+          ></div>
+        </div>
+        <span class="text-lg">Notificações</span>
+      </div>
+
+      <!-- Messages -->
+      <div
+        class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+        onclick="showMessages()"
+      >
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="text-lg">Mensagens</span>
+      </div>
+
+      <!-- Reels - Active -->
+      <div class="flex items-center space-x-3 text-white cursor-pointer">
+        <i data-lucide="play" class="w-6 h-6"></i>
+        <span class="text-lg font-semibold">Reels</span>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Mobile Header -->
+  <header
+    class="header-mobile absolute top-0 left-0 right-0 z-20 bg-black h-16 flex items-center justify-between px-6"
+  >
+    <!-- Back button and title -->
+    <div class="flex items-center space-x-3">
+      <i
+        data-lucide="arrow-left"
+        class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors"
+        onclick="showMain()"
+      ></i>
+      <h1 class="text-white text-xl font-medium">Reels</h1>
+    </div>
+
+    <!-- Camera Icon -->
+    <div class="flex items-center space-x-4">
+      <i
+        data-lucide="camera"
+        class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors"
+      ></i>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col overflow-hidden main-content">
+    <!-- Desktop Header -->
+    <header
+      class="sidebar-desktop bg-black w-full h-16 flex items-center justify-between px-6 border-b border-gray-800"
+    >
+      <h1 class="text-white text-xl font-medium">Reels</h1>
+
+      <!-- Camera Icon -->
+      <div class="flex items-center space-x-4">
+        <i
+          data-lucide="camera"
+          class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors"
+        ></i>
+      </div>
+    </header>
+
+    <!-- Reels Content -->
+    <div class="flex-1 overflow-hidden bg-black relative">
+      <!-- Reel Container -->
+      <div class="h-full flex items-center justify-center relative">
+        
+        <!-- Reel Video/Content Area -->
+        <div class="relative w-full max-w-sm h-full bg-gradient-to-br from-purple-600 via-purple-700 to-pink-600 flex items-center justify-center">
+          <!-- Video Content Placeholder -->
+          <div class="absolute inset-4 bg-black bg-opacity-20 rounded-xl flex items-center justify-center">
+            <img 
+              src="./imgs/Camiseta Baila.png" 
+              alt="Reel Content" 
+              class="max-w-full max-h-full object-contain drop-shadow-2xl"
+            />
+          </div>
+
+          <!-- Bottom Overlay Info -->
+          <div class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent">
+            <!-- User Info -->
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center">
+                <i data-lucide="star" class="w-4 h-4 text-white"></i>
+              </div>
+              <span class="text-white font-semibold text-sm">Baila</span>
+              <button class="px-3 py-1 border border-white text-white rounded-full text-xs hover:bg-white hover:text-black transition-colors">
+                Seguir
+              </button>
+            </div>
+
+            <!-- Description -->
+            <p class="text-white text-sm mb-2 leading-relaxed">
+              Nova coleção de uniformes chegando! 🔥 #Baila #FutebolFeminino
+            </p>
+
+            <!-- Audio Info -->
+            <div class="flex items-center space-x-2">
+              <i data-lucide="music" class="w-4 h-4 text-white"></i>
+              <span class="text-white text-xs opacity-80">Som original - Baila</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Actions -->
+        <div class="absolute right-4 bottom-20 flex flex-col space-y-6 z-10">
+          <!-- Like -->
+          <div class="flex flex-col items-center">
+            <button class="w-12 h-12 bg-black bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all">
+              <i data-lucide="heart" class="w-6 h-6 text-white"></i>
+            </button>
+            <span class="text-white text-xs mt-1">234</span>
+          </div>
+
+          <!-- Comment -->
+          <div class="flex flex-col items-center">
+            <button class="w-12 h-12 bg-black bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all">
+              <i data-lucide="message-circle" class="w-6 h-6 text-white"></i>
+            </button>
+            <span class="text-white text-xs mt-1">12</span>
+          </div>
+
+          <!-- Share -->
+          <div class="flex flex-col items-center">
+            <button class="w-12 h-12 bg-black bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all">
+              <i data-lucide="share" class="w-6 h-6 text-white"></i>
+            </button>
+          </div>
+
+          <!-- More Options -->
+          <div class="flex flex-col items-center">
+            <button class="w-12 h-12 bg-black bg-opacity-30 rounded-full flex items-center justify-center hover:bg-opacity-50 transition-all">
+              <i data-lucide="more-vertical" class="w-6 h-6 text-white"></i>
+            </button>
+          </div>
+
+          <!-- Profile Music Icon -->
+          <div class="flex flex-col items-center mt-4">
+            <div class="w-10 h-10 bg-purple-600 rounded-lg flex items-center justify-center border-2 border-white animate-spin-slow">
+              <i data-lucide="music" class="w-5 h-5 text-white"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Indicators (Mobile only) -->
+        <div class="header-mobile absolute top-20 left-4 right-4 flex space-x-1">
+          <div class="flex-1 h-0.5 bg-white bg-opacity-30 rounded-full overflow-hidden">
+            <div class="h-full bg-white rounded-full w-full animate-pulse"></div>
+          </div>
+          <div class="flex-1 h-0.5 bg-white bg-opacity-30 rounded-full"></div>
+          <div class="flex-1 h-0.5 bg-white bg-opacity-30 rounded-full"></div>
+        </div>
+      </div>
+
+      <!-- Navigation Arrows (Desktop) -->
+      <div class="sidebar-desktop absolute left-1/2 transform -translate-x-1/2 bottom-8 flex space-x-4">
+        <button class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all">
+          <i data-lucide="chevron-up" class="w-5 h-5 text-white"></i>
+        </button>
+        <button class="w-10 h-10 bg-black bg-opacity-50 rounded-full flex items-center justify-center hover:bg-opacity-70 transition-all">
+          <i data-lucide="chevron-down" class="w-5 h-5 text-white"></i>
+        </button>
+      </div>
     </div>
   </div>
 </div>

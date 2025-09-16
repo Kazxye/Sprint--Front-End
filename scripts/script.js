@@ -96,3 +96,18 @@ function showNotifications() {
   document.getElementById('messages').classList.add('hidden');
 }
 
+function showReels() {
+  // Esconde todas as páginas
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('main').classList.add('hidden');
+  document.getElementById('search').classList.add('hidden');
+  document.getElementById('messages').classList.add('hidden');
+  document.getElementById('notifications').classList.add('hidden');
+  
+  // Mostra a página de reels
+  document.getElementById('reels').classList.remove('hidden');
+  document.getElementById('reels').classList.add('flex');
+  
+  // Inicializa os ícones do Lucide
+  lucide.createIcons();
+}
