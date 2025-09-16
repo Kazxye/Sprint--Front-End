@@ -213,7 +213,7 @@
 
           <!-- Notifications -->
           <div
-            class="flex items-center space-x-3 text-white hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-white hover:text-purple-300 cursor-pointer transition-colors" onclick="showNotifications()"
           >
             <div class="relative">
               <i data-lucide="bell" class="w-6 h-6"></i>
@@ -257,7 +257,7 @@
           <div class="relative">
             <i
               data-lucide="bell"
-              class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors"
+              class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors" onclick="showNotifications()"
             ></i>
             <!-- Notification dot -->
             <div
@@ -507,7 +507,7 @@
 
           <!-- Notifications -->
           <div
-            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showNotifications()"
           >
             <div class="relative">
               <i data-lucide="bell" class="w-6 h-6"></i>
@@ -607,7 +607,7 @@
               >
                 <!-- Game Image -->
                 <div class="flex items-center flex-1 justify-center">
-                  <img src="./imgs/jogos.png" alt="Corinthians vs Palmeiras" class="w-48 h-32 md:w-60 md:h-40 object-contain drop-shadow-2xl"/>
+                  <img src="./imgs/jogos.png" alt="Corinthians vs Palmeiras" class="w-64 h-40 md:w-80 md:h-52 object-contain drop-shadow-2xl"/>
                 </div>
 
                 <div class="text-right ml-4">
@@ -685,7 +685,7 @@
 
           <!-- Notifications -->
           <div
-            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors"
+            class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showNotifications()"
           >
             <div class="relative">
               <i data-lucide="bell" class="w-6 h-6"></i>
@@ -795,6 +795,165 @@
         </div>
       </div>
     </div>
+
+          <!-- Notifications Page -->
+<div id="notifications" class="hidden h-[100dvh] flex bg-black relative overflow-hidden">
+  <!-- Sidebar (Desktop only) -->
+  <aside class="sidebar-desktop w-64 bg-black border-r border-gray-800 flex flex-col p-6">
+    <!-- Logo Baila -->
+    <h1 class="text-white text-2xl font-medium font-serif mb-8">Baila</h1>
+    
+    <!-- Navigation Menu -->
+    <nav class="flex flex-col space-y-6">
+      <!-- Home -->
+      <div class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showMain()">
+        <i data-lucide="home" class="w-6 h-6"></i>
+        <span class="text-lg">Feed</span>
+      </div>
+      
+      <!-- Search -->
+      <div class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showSearch()">
+        <i data-lucide="search" class="w-6 h-6"></i>
+        <span class="text-lg">Pesquisar</span>
+      </div>
+      
+      <!-- Notifications - Active -->
+      <div class="flex items-center space-x-3 text-white cursor-pointer">
+        <div class="relative">
+          <i data-lucide="bell" class="w-6 h-6"></i>
+        </div>
+        <span class="text-lg font-semibold">Notificações</span>
+      </div>
+      
+      <!-- Messages -->
+      <div class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors" onclick="showMessages()">
+        <i data-lucide="message-circle" class="w-6 h-6"></i>
+        <span class="text-lg">Mensagens</span>
+      </div>
+      
+      <!-- Reels -->
+      <div class="flex items-center space-x-3 text-gray-400 hover:text-purple-300 cursor-pointer transition-colors">
+        <i data-lucide="play" class="w-6 h-6"></i>
+        <span class="text-lg">Reels</span>
+      </div>
+    </nav>
+  </aside>
+  
+  <!-- Mobile Header -->
+  <header class="header-mobile absolute top-0 left-0 right-0 z-10 bg-black h-16 flex items-center justify-between px-6 border-b border-gray-800">
+    <!-- Back button and title -->
+    <div class="flex items-center space-x-3">
+      <i data-lucide="arrow-left" class="w-6 h-6 text-white hover:text-purple-300 cursor-pointer transition-colors" onclick="showMain()"></i>
+      <h1 class="text-white text-xl font-medium">Notificações</h1>
+    </div>
+  </header>
+  
+  <!-- Main Content Area -->
+  <div class="flex-1 flex flex-col overflow-hidden main-content">
+    <!-- Desktop Header -->
+    <header class="sidebar-desktop bg-black w-full h-16 flex items-center justify-between px-6 border-b border-gray-800">
+      <h1 class="text-white text-xl font-medium">Notificações</h1>
+    </header>
+    
+    <!-- Notifications Content -->
+    <div class="flex-1 overflow-y-auto bg-black">
+      <!-- Notification Item 1 -->
+      <div class="border-b border-gray-800 p-4 hover:bg-gray-900 cursor-pointer">
+        <div class="flex items-start space-x-3">
+          <!-- Avatar -->
+          <img src="./imgs/Ary.png" alt="Ary Borges" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"/>
+          
+          <!-- Notification Content -->
+          <div class="flex-1">
+            <p class="text-white text-sm">
+              <span class="font-semibold">Ary Borges</span> curtiu sua publicação
+            </p>
+            <p class="text-gray-400 text-xs mt-1">há 2 horas</p>
+          </div>
+          
+          <!-- Notification dot -->
+          <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+        </div>
+      </div>
+      
+      <!-- Notification Item 2 -->
+      <div class="border-b border-gray-800 p-4 hover:bg-gray-900 cursor-pointer">
+        <div class="flex items-start space-x-3">
+          <!-- Avatar -->
+          <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center">
+            <i data-lucide="star" class="w-6 h-6 text-white"></i>
+          </div>
+          
+          <!-- Notification Content -->
+          <div class="flex-1">
+            <p class="text-white text-sm">
+              <span class="font-semibold">Baila</span> publicou uma nova foto
+            </p>
+            <p class="text-gray-400 text-xs mt-1">há 5 horas</p>
+          </div>
+          
+          <!-- Notification dot -->
+          <div class="w-2 h-2 bg-purple-500 rounded-full mt-2"></div>
+        </div>
+      </div>
+      
+      <!-- Notification Item 3 -->
+      <div class="border-b border-gray-800 p-4 hover:bg-gray-900 cursor-pointer">
+        <div class="flex items-start space-x-3">
+          <!-- Avatar -->
+          <img src="./imgs/Ary.png" alt="Jogadora" class="w-12 h-12 rounded-full object-cover border-2 border-purple-500"/>
+          
+          <!-- Notification Content -->
+          <div class="flex-1">
+            <p class="text-white text-sm">
+              <span class="font-semibold">Marta Silva</span> começou a seguir você
+            </p>
+            <p class="text-gray-400 text-xs mt-1">há 1 dia</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Notification Item 4 -->
+      <div class="border-b border-gray-800 p-4 hover:bg-gray-900 cursor-pointer">
+        <div class="flex items-start space-x-3">
+          <!-- Avatar -->
+          <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center">
+            <i data-lucide="trophy" class="w-6 h-6 text-white"></i>
+          </div>
+          
+          <!-- Notification Content -->
+          <div class="flex-1">
+            <p class="text-white text-sm">
+              Parabéns! Você ganhou o troféu <span class="font-semibold">"Fã Dedicada"</span>
+            </p>
+            <p class="text-gray-400 text-xs mt-1">há 2 dias</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Notification Item 5 -->
+      <div class="border-b border-gray-800 p-4 hover:bg-gray-900 cursor-pointer">
+        <div class="flex items-start space-x-3">
+          <!-- Avatar -->
+          <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
+            <i data-lucide="calendar" class="w-6 h-6 text-white"></i>
+          </div>
+          
+          <!-- Notification Content -->
+          <div class="flex-1">
+            <p class="text-white text-sm">
+              Lembrete: <span class="font-semibold">Corinthians vs Palmeiras</span> começa em 1 hora
+            </p>
+            <p class="text-gray-400 text-xs mt-1">há 3 dias</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional space -->
+      <div class="h-20"></div>
+    </div>
+  </div>
+</div>
 
     <script src="./scripts/script.js"></script>
   </body>

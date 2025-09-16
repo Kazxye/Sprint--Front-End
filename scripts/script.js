@@ -86,3 +86,13 @@
     window.addEventListener('load', function() {
       initLucideIcons();
     });
+
+
+
+function showNotifications() {
+  document.getElementById('notifications').classList.remove('hidden');
+  document.getElementById('main').classList.add('hidden');
+  document.getElementById('search').classList.add('hidden');
+  document.getElementById('messages').classList.add('hidden');
+}
+
